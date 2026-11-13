@@ -14,6 +14,12 @@ class GreetTests(unittest.TestCase):
         self.assertEqual(greet("Alice"), "Hello, Alice!")
         self.assertEqual(greet("Bob"), "Hello, Bob!")
 
+    def test_empty_name(self):
+        self.assertEqual(greet(""), "Hello, !")
+
+    def test_non_ascii_name(self):
+        self.assertEqual(greet("Zoë"), "Hello, Zoë!")
+
     def test_running_script_prints_world_greeting(self):
         script = Path(__file__).with_name("hello.py")
         result = subprocess.run(
